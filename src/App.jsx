@@ -3,6 +3,7 @@ import { TodoProvider } from './context'
 import './App.css'
 import TodoForm from './components/TodoForm'
 import TodoItem from './components/TodoItem'
+import Footer from "./components/Footer";
 
 //defining all functionality here
 function App() {
@@ -67,7 +68,28 @@ function App() {
                         ))}
                     </div>
                 </div>
-            </div>
+                <footer className="py-2 text-center text-white bg-gray-800 mt-[550px] flex justify-between items-center px-10">
+      <p>
+        Made with ❤️ by {""}
+        <a
+          href="mailto:nehamehar31@gmail.com"
+          className="underline hover:text-blue-600"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Neha Mehar
+        </a>
+      </p>
+      <a
+        href="https://github.com/nehamehar/TodocontextLocal"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i className="mt-2 text-2xl text-white fa-brands fa-github hover:text-slate-700"></i>
+      </a>
+    </footer> 
+                
+            </div> 
     </TodoProvider>
   )
 }
