@@ -86,7 +86,7 @@ function App() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i className="mr-16 text-3xl text-white text- fab fa-github hover:text-slate-700"></i>
+        <i className="mr-16 text-[28px] text-white text- fab fa-github hover:text-slate-700"></i>
       </a>
     </footer> 
                 
