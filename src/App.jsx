@@ -68,7 +68,7 @@ function App() {
                         ))}
                     </div>
                 </div>
-                <footer className="flex items-center justify-between w-full px-3 py-1 text-sm text-gray-500 bg-gray-800 sm:px-10">
+                <footer className="flex items-center justify-between w-full px-3 py-1 text-xs text-gray-500 bg-gray-800 sm:px-10 ">
 
       <p className='ml-16'>
         Made with ❤️ by {""}
@@ -86,7 +86,7 @@ function App() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i className="mr-16 text-3xl text-white fab fa-github hover:text-slate-700"></i>
+        <i className="mr-16 text-3xl text-white text- fab fa-github hover:text-slate-700"></i>
       </a>
     </footer> 
                 
