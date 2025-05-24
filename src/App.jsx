@@ -51,7 +51,7 @@ function App() {
   //JSON.parse give js
   return (
     <TodoProvider value={{todos, addTodo, updatedTodo, deletedTodo, toggleCompleted}}>    {/* whenever we use provider we have to mention what provider will give like value and all */}
-    <div className="bg-[#000000] min-h-screen py-10 flex flex-col">
+    <div className="bg-[#000000] min-h-screen flex flex-col">
                 <div className="flex-grow w-full max-w-2xl px-4 py-3 mx-auto text-white rounded-lg shadow-md">
                     <h1 className="mt-2 mb-8 text-4xl font-bold text-center text-red-900 ">TO-DO App</h1>
                     <div className="mb-4">
@@ -70,7 +70,7 @@ function App() {
                 </div>
                 <footer className="flex items-center justify-between w-full px-3 py-1 text-sm text-gray-500 bg-gray-800 sm:px-10">
 
-      <p>
+      <p className='ml-16'>
         Made with ❤️ by {""}
         <a
           href="mailto:nehamehar31@gmail.com"
@@ -86,7 +86,7 @@ function App() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i className="text-2xl text-white fab fa-github hover:text-slate-700"></i>
+        <i className="mr-16 text-3xl text-white fab fa-github hover:text-slate-700"></i>
       </a>
     </footer> 
                 
