@@ -74,7 +74,7 @@ function App() {
         Made with ❤️ by {""}
         <a
           href="mailto:nehamehar31@gmail.com"
-          className=" hover:text-blue-600 text-slate-200"
+          className="text-base hover:text-blue-600 text-slate-200"
           target="_blank"
           rel="noopener noreferrer"
         >
