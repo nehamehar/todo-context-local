@@ -51,8 +51,8 @@ function App() {
   //JSON.parse give js
   return (
     <TodoProvider value={{todos, addTodo, updatedTodo, deletedTodo, toggleCompleted}}>    {/* whenever we use provider we have to mention what provider will give like value and all */}
-    <div className="bg-[#000000] min-h-screen py-10">
-                <div className="w-full max-w-2xl px-4 py-3 mx-auto text-white rounded-lg shadow-md">
+    <div className="bg-[#000000] min-h-screen py-10 flex flex-col">
+                <div className="flex-grow w-full max-w-2xl px-4 py-3 mx-auto text-white rounded-lg shadow-md">
                     <h1 className="mt-2 mb-8 text-4xl font-bold text-center text-red-900 ">TO-DO App</h1>
                     <div className="mb-4">
                         {/* Todo form goes here */} 
@@ -68,16 +68,17 @@ function App() {
                         ))}
                     </div>
                 </div>
-                <footer className="py-2 text-center text-white bg-gray-800 mt-[550px] flex justify-between items-center px-10">
+                <footer className="flex items-center justify-between w-full px-3 py-1 text-sm text-gray-500 bg-gray-800 sm:px-10">
+
       <p>
         Made with ❤️ by {""}
         <a
           href="mailto:nehamehar31@gmail.com"
-          className="underline hover:text-blue-600"
+          className=" hover:text-blue-600 text-slate-200"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Neha Mehar
+          Neha
         </a>
       </p>
       <a
@@ -85,7 +86,7 @@ function App() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i className="mt-2 text-2xl text-white fa-brands fa-github hover:text-slate-700"></i>
+        <i className="text-2xl text-white fab fa-github hover:text-slate-700"></i>
       </a>
     </footer> 
                 
