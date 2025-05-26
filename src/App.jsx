@@ -7,7 +7,8 @@ import Footer from "./components/Footer";
 
 //defining all functionality here
 function App() {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([]);
+  const [lastDeleted, setLastDeleted] = useState(null);
   
   const addTodo =(todo)=> {
     setTodos((prev) => [{id: Date.now(), ...todo}, ...prev]) // adding old values and new values as todo we have to pass in object as we already assigned todo as key in object
@@ -25,10 +26,25 @@ function App() {
    // prevTodo.id= every todo's id and id is updatedTodo = (id, todo) given id
   }
 
-  const deletedTodo = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id))
-  }
+  // const deletedTodo = (id) => {
+  //   setTodos((prev) => prev.filter((todo) => todo.id !== id))
+  // }
+
+const deletedTodo = (id) => {
+const todoToDelete = todos.find(todo => todo.id === id);
+  setLastDeleted(todoToDelete);   // save the deleted todo
+  setTodos(todos.filter(todo => todo.id !== id));
+};
   //prev.filter means here we are saying filter the id of todo which would not match with here id (deltetodo's id)
+
+  //undo button:
+  const undoDelete = () => {
+  if (lastDeleted) {
+    setTodos(prevTodos => [...prevTodos, lastDeleted]);
+    setLastDeleted(null);  // clear after undo
+  }
+};
+
   const toggleCompleted = (id) => {
     setTodos((prev) => prev.map((prevTodo) => prevTodo.id===id ? {...prevTodo, completed:!prevTodo.completed}: prevTodo))
   }
@@ -52,13 +68,13 @@ function App() {
   return (
     <TodoProvider value={{todos, addTodo, updatedTodo, deletedTodo, toggleCompleted}}>    {/* whenever we use provider we have to mention what provider will give like value and all */}
     <div className="bg-[#000000] min-h-screen flex flex-col">
-                <div className="flex-grow w-full max-w-2xl px-4 py-3 mx-auto text-white rounded-lg shadow-md">
-                    <h1 className="mt-2 mb-8 text-4xl font-bold text-center text-red-900 ">TO-DO App</h1>
-                    <div className="mb-4">
+                <div className="flex-grow w-full max-w-2xl px-4 py-4 mx-auto text-white rounded-lg shadow-md">
+                    <h1 className="mt-2 text-4xl font-bold text-center text-cyan-700 mb-9">TO-DO App</h1>
+                    <div className="mb-10">
                         {/* Todo form goes here */} 
                         <TodoForm/>
                     </div>
-                    <div className="flex-wrap space-y-6 flex-direction: row-1 ">
+                    <div className="flex-wrap space-y-4 flex-direction: row-1 ">
                         {/*Loop and Add TodoItem here */}
                         {todos.map((todo) => (
                           <div key={todo.id}
@@ -67,14 +83,22 @@ function App() {
                           </div>
                         ))}
                     </div>
+                    <div className="flex justify-center mt-4">
+    <button
+      onClick={undoDelete}
+      className="px-3 py-2 mt-6 font-semibold text-white transition duration-300 bg-yellow-600 rounded hover:bg-yellow-500"
+    >
+      Undo
+    </button>
+  </div>
                 </div>
-                <footer className="flex items-center justify-between w-full px-3 py-2 text-xs text-gray-500 bg-gray-800 sm:px-10 ">
+                <footer className="flex items-center justify-between w-full px-3 py-2.5 text-base text-gray-500 bg-gray-800 sm:px-10 ">
 
-      <p className='ml-16'>
+      <p className='ml-24'>
         Made with ❤️ by {""}
         <a
           href="mailto:nehamehar31@gmail.com"
-          className="text-base hover:text-blue-600 text-slate-200"
+          className="text-base text-slate-200"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -86,7 +110,7 @@ function App() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <i className="mr-16 text-[25px] text-white text- fab fa-github hover:text-slate-700"></i>
+        <i className="mr-16 text-[25px] text-white text- fab fa-github"></i>
       </a>
     </footer> 
                 
