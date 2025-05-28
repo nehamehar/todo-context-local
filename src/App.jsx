@@ -118,7 +118,7 @@ const todoToDelete = todos.find(todo => todo.id === id);
 )}
 
                 </div>
-                <footer className="flex items-center justify-between w-full px-3 py-3.5 text-base text-gray-500 bg-slate-800 sm:px-10 ">
+                <footer className="flex items-center justify-between w-full px-3 py-4 text-base text-gray-500 bg-slate-800 sm:px-10 ">
 
       <p className='ml-24'>
         Made with ❤️ by {""}
