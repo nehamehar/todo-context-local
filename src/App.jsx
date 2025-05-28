@@ -34,6 +34,12 @@ const deletedTodo = (id) => {
 const todoToDelete = todos.find(todo => todo.id === id);
   setLastDeleted(todoToDelete);   // save the deleted todo
   setTodos(todos.filter(todo => todo.id !== id));
+  setShowUndo(true); // 👈 show undo
+  // optional: auto-hide after 5 seconds
+    setTimeout(() => {
+      setShowUndo(false);
+      setLastDeleted(null); // clear last deleted
+    }, 5000);
 };
   //prev.filter means here we are saying filter the id of todo which would not match with here id (deltetodo's id)
 
@@ -42,6 +48,7 @@ const todoToDelete = todos.find(todo => todo.id === id);
   if (lastDeleted) {
     setTodos(prevTodos => [...prevTodos, lastDeleted]);
     setLastDeleted(null);  // clear after undo
+    setShowUndo(false);
   }
 };
 
@@ -67,9 +74,12 @@ const todoToDelete = todos.find(todo => todo.id === id);
   //JSON.parse give js
   return (
     <TodoProvider value={{todos, addTodo, updatedTodo, deletedTodo, toggleCompleted}}>    {/* whenever we use provider we have to mention what provider will give like value and all */}
-    <div className="bg-[#000000] min-h-screen flex flex-col">
-                <div className="flex-grow w-full max-w-2xl px-4 py-4 mx-auto text-white rounded-lg shadow-md">
-                    <h1 className="mt-2 text-4xl font-bold text-center text-cyan-700 mb-9">TO-DO App</h1>
+    
+    <div className="flex flex-col min-h-screen bg-center bg-no-repeat bg-cover "style={{
+    backgroundImage: "url('https://img.pikbest.com/backgrounds/20220119/vintage-texture-kraft-paper-brown-retro_6237865.jpg!sw800')"
+  }}>
+                <div className="flex-grow w-full max-w-2xl px-4 py-6 mx-auto text-black rounded-lg shadow-md">
+                    <h1 className="mt-2 text-4xl font-extrabold text-center text-slate-800 mb-9">TO-DO App</h1>
                     <div className="mb-10">
                         {/* Todo form goes here */} 
                         <TodoForm/>
@@ -83,16 +93,32 @@ const todoToDelete = todos.find(todo => todo.id === id);
                           </div>
                         ))}
                     </div>
-                    <div className="flex justify-center mt-4">
-    <button
-      onClick={undoDelete}
-      className="px-3 py-2 mt-6 font-semibold text-white transition duration-300 bg-yellow-600 rounded hover:bg-yellow-500"
-    >
-      Undo
-    </button>
+                    {/* Show undo only when a todo is deleted */}
+{lastDeleted && (
+  <div className="flex justify-center mt-56">
+    <div className="flex items-center gap-4 px-4 py-3 text-white rounded shadow-md bg-slate-800">
+
+      <button
+        onClick={undoDelete}
+        className="font-semibold hover:text-gray-200"
+      >
+        Undo
+      </button>
+      <button
+        onClick={() => {
+          setLastDeleted(null);
+        }}
+        className="text-white hover:text-gray-300"
+        aria-label="Close"
+      >
+        ✕
+      </button>
+    </div>
   </div>
+)}
+
                 </div>
-                <footer className="flex items-center justify-between w-full px-3 py-2.5 text-base text-gray-500 bg-gray-800 sm:px-10 ">
+                <footer className="flex items-center justify-between w-full px-3 py-3.5 text-base text-gray-500 bg-slate-800 sm:px-10 ">
 
       <p className='ml-24'>
         Made with ❤️ by {""}
