@@ -16,7 +16,7 @@ function TodoForm() {
             <input
                 type="text"
                 placeholder="Write Todo..."
-                className="w-full px-4 py-1.5 duration-150 rounded-l-lg outline-none border-gray-800 bg-black/20 border-5 border backdrop-filter backdrop-brightness-50"
+                className="w-full px-4 py-1.5 duration-150 rounded-l-lg outline-none border-gray-800 bg-black/10 border-5 border backdrop-filter backdrop-brightness-40"
                 value={todo}  // for adding input with date we use value ={todo} the value is binding input to todo
                 onChange={(e) => setTodo(e.target.value)}
                 // e.target.value (e.target = shows input fleid, e.target.value= shows input current value which we have give to input (value={todo}) )

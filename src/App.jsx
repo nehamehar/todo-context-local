@@ -93,11 +93,11 @@ const todoToDelete = todos.find(todo => todo.id === id);
                           </div>
                         ))}
                     </div>
+
                     {/* Show undo only when a todo is deleted */}
 {lastDeleted && (
-  <div className="flex justify-center mt-56">
-    <div className="flex items-center gap-4 px-4 py-3 text-white rounded shadow-md bg-slate-800">
-
+  <div className="fixed z-50 bottom-[4.3rem] left-0">
+    <div className="flex items-center gap-4 py-5 text-white rounded shadow-md px-11 bg-slate-800">
       <button
         onClick={undoDelete}
         className="font-semibold hover:text-gray-200"
@@ -105,10 +105,8 @@ const todoToDelete = todos.find(todo => todo.id === id);
         Undo
       </button>
       <button
-        onClick={() => {
-          setLastDeleted(null);
-        }}
-        className="text-white hover:text-gray-300"
+        onClick={() => setLastDeleted(null)}
+        className=" hover:text-gray-300"
         aria-label="Close"
       >
         ✕
@@ -117,11 +115,12 @@ const todoToDelete = todos.find(todo => todo.id === id);
   </div>
 )}
 
+                    
                 </div>
                 <footer className="flex items-center justify-between w-full px-3 py-5 text-base text-gray-500 bg-neutral-800 sm:px-10 ">
 
       <p className='ml-24'>
-        Made with <span className="text-lg text-red-500 animate-pulse">❤️</span>by {""}
+        Made with <span className="text-lg text-red-500 animate-pulse">❤️</span> by {""}
         <a
           href="mailto:nehamehar31@gmail.com"
           className="text-base text-slate-200"
