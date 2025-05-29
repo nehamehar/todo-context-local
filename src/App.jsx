@@ -121,7 +121,7 @@ const todoToDelete = todos.find(todo => todo.id === id);
                 <footer className="flex items-center justify-between w-full px-3 py-5 text-base text-gray-500 bg-neutral-800 sm:px-10 ">
 
       <p className='ml-24'>
-        Made with ❤️ by {""}
+        Made with <span className="text-lg text-red-500 animate-pulse">❤️</span>by {""}
         <a
           href="mailto:nehamehar31@gmail.com"
           className="text-base text-slate-200"
