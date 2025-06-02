@@ -11,7 +11,7 @@ function TodoForm() {
         addTodo({todo, completed: false}) //as addTodo is fun so we pass it as object todo have key value already mention in addTodo fun also date.now is already mention in fun addTodo which have obje
         setTodo("")
     }
-    return 
+    return (
         <form onSubmit={add} className="flex">  {/* giving event */}
             <input   
                 type="text"
