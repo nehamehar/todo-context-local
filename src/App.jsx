@@ -78,9 +78,8 @@ const todoToDelete = todos.find(todo => todo.id === id);
     <div className="flex flex-col min-h-screen bg-center bg-no-repeat bg-cover" style={{
     backgroundImage: "url('https://t3.ftcdn.net/jpg/05/04/26/26/360_F_504262658_dZ9Beoc4YUiCnt6tkcj0MStoJSyKCchC.jpg')"
   }}>
-{    //https://plus.unsplash.com/premium_photo-1675695700239-44153e6bf430?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGFwZXJ8ZW58MHx8MHx8fDA%3D
-}                <div className="flex-grow w-full max-w-2xl px-4 py-6 mx-auto text-black rounded-lg shadow-md">
-                    <h1 className="mt-2 text-4xl font-extrabold text-center mb-9 sm:text-6xl text-[#7e7d7d86]">TO-DO App</h1>
+               <div className="flex-grow w-full max-w-2xl px-4 py-6 mx-auto text-black rounded-lg shadow-md">
+                    <h1 className="mt-2 text-4xl font-extrabold text-center mb-9 sm:text-6xl text-[#7e7b7b86]">TO-DO App</h1>
                     <div className="mb-10">
                         {/* Todo form goes here */} 
                         <TodoForm/>
